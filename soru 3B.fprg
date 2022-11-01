@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Sony"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-11-01 10:49:29 PM"/>
+        <attribute name="created" value="U29ueTtERVNLVE9QLU8zTUhTMlQ7MjAyMi0xMS0wMTsxMDoxNjo0MSBQTTsyNzcw"/>
+        <attribute name="edited" value="U29ueTtERVNLVE9QLU8zTUhTMlQ7MjAyMi0xMS0wMTsxMDo0OToyOSBQTTsxOzI4OTA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="size, i, j" type="Integer" array="False" size=""/>
+            <assign variable="size" expression="10000"/>
+            <assign variable="j" expression="10000"/>
+            <for variable="i" start="0" end="size" direction="inc" step="1">
+                <assign variable="randomarray[i]" expression="rand() % 10000"/>
+            </for>
+            <call expression="quicksort(randomarray, 0, j - 1)"/>
+            <for variable="i" start="0 " end="j" direction="inc" step="1">
+                <output expression="randomarray[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+    <function name="quicksort" type="None" variable="">
+        <parameters>
+            <parameter name="randomarray" type="Integer" array="True"/>
+            <parameter name="first" type="Integer" array="False"/>
+            <parameter name="last" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="i, j, pivot, temp" type="Integer" array="False" size=""/>
+            <if expression="first &lt; last">
+                <then>
+                    <assign variable="pivot" expression="first"/>
+                    <assign variable="j" expression="last"/>
+                    <assign variable="pivot" expression="first"/>
+                </then>
+                <else/>
+            </if>
+            <while expression="i &lt; j">
+                <while expression="randomarray[i]&lt;= randomarray[pivot]&amp;&amp;i&lt;last">
+                    <assign variable="i" expression="i+1"/>
+                </while>
+                <while expression="randomarray[j] &gt; randomarray[pivot]">
+                    <assign variable="j" expression="j-1"/>
+                </while>
+                <if expression="i &lt; j">
+                    <then>
+                        <assign variable="temp" expression="randomarray[i]"/>
+                        <assign variable="randomarray" expression="randomarray[j]"/>
+                        <assign variable="randomarray[j]" expression="temp"/>
+                    </then>
+                    <else/>
+                </if>
+            </while>
+            <assign variable="temp" expression="randomarrray[pivot]"/>
+            <assign variable="randomarray[pivot]" expression="randomarray[j]"/>
+            <assign variable="randomarray[j]" expression="temp"/>
+            <call expression="quicksort(randomarray, first, j - 1)"/>
+            <call expression="quicksort(randomarray, j + 1, last)"/>
+        </body>
+    </function>
+</flowgorithm>

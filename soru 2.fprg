@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Sony"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-11-01 09:15:08 PM"/>
+        <attribute name="created" value="U29ueTtERVNLVE9QLU8zTUhTMlQ7MjAyMi0xMS0wMTswODozMDo0NCBQTTsyNzc2"/>
+        <attribute name="edited" value="U29ueTtERVNLVE9QLU8zTUhTMlQ7MjAyMi0xMS0wMTswOToxNTowOCBQTTsxOzI4ODg="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="sonuc, toplam, karetoplami, toplamkaresi, i" type="Integer" array="False" size=""/>
+            <assign variable="sonuc" expression="0"/>
+            <assign variable="toplam" expression="0"/>
+            <assign variable="karetoplami" expression="0"/>
+            <assign variable="toplamkaresi" expression="0"/>
+            <for variable="i" start="1" end="100" direction="inc" step="1">
+                <assign variable="karetoplami" expression="karetoplami + (i*i)"/>
+                <assign variable="toplam" expression="toplam + i"/>
+            </for>
+            <assign variable="toplamkaresi" expression="toplam * toplam"/>
+            <assign variable="sonuc" expression="toplamkaresi - karetoplami"/>
+            <output expression="toplam" newline="True"/>
+            <output expression="toplamkaresi" newline="True"/>
+            <output expression="sonuc" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

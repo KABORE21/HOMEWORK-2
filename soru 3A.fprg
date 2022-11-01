@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Sony"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-11-01 10:14:56 PM"/>
+        <attribute name="created" value="U29ueTtERVNLVE9QLU8zTUhTMlQ7MjAyMi0xMS0wMTswOToxNToyNSBQTTsyNzc5"/>
+        <attribute name="edited" value="U29ueTtERVNLVE9QLU8zTUhTMlQ7MjAyMi0xMS0wMTsxMDoxNDo1NiBQTTsxOzI4ODI="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="size, a, i, j" type="Integer" array="False" size=""/>
+            <assign variable="size" expression="100000"/>
+            <declare name="randomarray" type="Integer" array="True" size="size"/>
+            <for variable="i" start="0" end="size" direction="inc" step="1">
+                <assign variable="randomarray" expression="rand()% 10000"/>
+            </for>
+            <call expression="selectionsort(randomarray, size)"/>
+            <for variable="a" start="0" end="size" direction="inc" step="1">
+                <output expression="randomarray[a]" newline="True"/>
+            </for>
+        </body>
+    </function>
+    <function name="selectionsort" type="None" variable="">
+        <parameters>
+            <parameter name="array" type="Integer" array="True"/>
+            <parameter name="x" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="minimum, i, j, a" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="x" direction="inc" step="1">
+                <assign variable="minimum" expression="i"/>
+                <for variable="j" start="i" end="x" direction="inc" step="1">
+                    <if expression="array[j] &gt; array [minimum]">
+                        <then>
+                            <assign variable="minimum" expression="j"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+                <declare name="temp" type="Integer" array="False" size=""/>
+                <assign variable="temp" expression="array[i]"/>
+                <assign variable="array[i]" expression="array[minimum]"/>
+                <assign variable="array[minimum]" expression="temp"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Sony"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-11-01 11:04:15 PM"/>
+        <attribute name="created" value="U29ueTtERVNLVE9QLU8zTUhTMlQ7MjAyMi0xMS0wMTsxMDo1MDozNiBQTTsyNzcy"/>
+        <attribute name="edited" value="U29ueTtERVNLVE9QLU8zTUhTMlQ7MjAyMi0xMS0wMTsxMTowNDoxNSBQTTsxOzI4Nzc="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="size, i, j" type="Integer" array="False" size=""/>
+            <assign variable="size" expression="10000"/>
+            <assign variable="j" expression="10000"/>
+            <for variable="i" start="0" end="size" direction="inc" step="1">
+                <assign variable="randomarray[i]" expression="rand() % 10000"/>
+            </for>
+            <call expression="bubblesort(randomarray, size)"/>
+            <for variable="i" start="0" end="j" direction="inc" step="1">
+                <output expression="randomarray[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+    <function name="bubllesort" type="None" variable="">
+        <parameters>
+            <parameter name="randomarray" type="Integer" array="True"/>
+            <parameter name="size" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="i, j" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="size" direction="inc" step="1">
+                <for variable="j" start="0" end="size - i - 1" direction="inc" step="1">
+                    <if expression="randomarray[j] &gt; randomarray[j + 1]">
+                        <then>
+                            <call expression="swap(randomarray[j],randomarray[j + 1])"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+            </for>
+        </body>
+    </function>
+    <function name="swap" type="None" variable="">
+        <parameters>
+            <parameter name="xp" type="Integer" array="False"/>
+            <parameter name="yp" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="temp" type="Integer" array="False" size=""/>
+            <assign variable="temp" expression="xp"/>
+            <assign variable="xp" expression="yp"/>
+            <assign variable="yp" expression="temp"/>
+        </body>
+    </function>
+</flowgorithm>
